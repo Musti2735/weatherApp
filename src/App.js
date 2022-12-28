@@ -28,7 +28,18 @@ function App() {
     setCity('')
   }
 
-  const allData = { data, setData, city, setCity, data, dataList, setDataList, favorites, setFavorites }
+  const openDetail=async(cityName)=>{
+    const result = `${url}forecast?q=${cityName}&lang=tr&appid=${key}&units=metric`
+    const response = await fetch(result);
+    const weatherData = await response.json()
+    setData(weatherData)
+    setDataList(weatherData.list)
+    
+}
+
+  
+
+  const allData = { data, setData, city, setCity, data, dataList, setDataList, favorites,setFavorites, openDetail }
 
   return (
     <DataContext.Provider value={allData}>
