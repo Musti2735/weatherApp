@@ -3,6 +3,7 @@ import Header from './components/Header';
 import WeatherCard from './components/WeatherCard';
 import { useState } from 'react';
 import { DataContext } from './context/Data';
+import { FaGlasses, FaSearch } from 'react-icons/fa';
 
 const url = 'https://api.openweathermap.org/data/2.5/'
 const key = '24f4b587a66c966e59769c3b0f9ce4fb'
@@ -10,7 +11,7 @@ const key = '24f4b587a66c966e59769c3b0f9ce4fb'
 function App() {
   const [data, setData] = useState({})
   const [dataList, setDataList] = useState([])
-  const [city, setCity] = useState('izmir')
+  const [city, setCity] = useState('')
   const [favorites, setFavorites] = useState([])
 
   const fetchData = async () => {
@@ -37,7 +38,7 @@ function App() {
     
 }
 
-  
+
 
   const allData = { data, setData, city, setCity, data, dataList, setDataList, favorites,setFavorites, openDetail }
 
@@ -45,17 +46,19 @@ function App() {
     <DataContext.Provider value={allData}>
       <div className="App">
 
-        <Header />
+      <Header />
         <div className='form'>
           <form onSubmit={handleSubmit} >
-            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
-            <button type='submit'>Buton</button>
+            <input placeholder="Şehir..."
+            
+            className='input' type="text" value={city} onChange={(e) => setCity(e.target.value)} />
+            
           </form>
         </div>
-        <div className='d-flex justify-content-center mt-5'>
+    
             {data.city ? <WeatherCard /> : null}
-        </div>
 
+   
     
       </div>
     </DataContext.Provider>

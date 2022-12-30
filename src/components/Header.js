@@ -27,7 +27,6 @@ function Header() {
             day =   'Pazar'
             break;
         default:
-        // code block
     }
 
     return (
@@ -35,6 +34,7 @@ function Header() {
             <div className="navItem">
             <h3>Weather App</h3>
             </div>
+            <div className="navItem"><p>Gamze ve Safiye'ye Sevgilerle...</p></div>
             <div className="navItem">
             <p>{`${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()} ${day}`}</p>
             <p>{`${date.getHours()}:${date.getMinutes()}`}</p>

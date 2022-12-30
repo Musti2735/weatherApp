@@ -1,29 +1,226 @@
-.App {
-  text-align: center;
+body {
+  font-family: Tahoma, sans-serif;
+  font-size: 16px;
+  background-image: url('../src/assets/cloudly.jpg');
+  background-size: cover;
+  color: #fff;
+
 }
 
-.navigation{
-display: flex;
-justify-content: space-around;
-background-color: bisque;
+body.clouds {
+  background-image: url('../src/assets/cloudly.jpg');
+  background-size: cover;
+  color: #fff;
+
 }
-.navItem{
+
+body.clear {
+  background-image: url('../src/assets/clearly.JPG');
+  background-size: cover;
+  color: #fff;
+}
+
+body.snow {
+  background-image: url('../src/assets/snow.JPG');
+  background-size: cover;
+  color: #fff;
+}
+
+body.rain {
+  background-image: url('../src/assets/rainly.jpg');
+  background-size: cover;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.favoriteList {
+  width: 200px;
+
+}
+
+.weaherCard {
+  width: 600px;
+  padding: 10px;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  color: #fbfbfb;
+  text-align: start;
+}
+
+.info1 {
+  margin:auto;
+  margin-top: 30px;
+}
+
+.info2 {
+  margin:auto;
+  margin-top: 30px;
+}
+
+.cardItem {
+  margin: 20px;
+  text-align: end;
+}
+
+.cityName {
+  font-size: 30px;
+  text-align: center;
+  margin: 5px;
+}
+
+.degree {
+  font-size: 40px;
+  text-align: center;
+  margin: 5px;
+}
+
+.desc {
+  font-size: 20px;
+  text-align: center;
+  margin: 5px;
+}
+
+.otherDays {
+
+  margin: 10px;
+  background-color: rgba(82, 142, 220, 0.5);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.button {
+  border: none;
+  color: #fbfbfb;
+  background-color: #2a63a9;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  margin: 1px;
+  width: auto;
+  border-radius: 6px;
+}
+
+
+.button:hover {
+  background-color: #bfdcff;
+  ;
+  color: #2a63a9;
+  ;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 
 }
 .form{
-  margin: 10px;
-}
-.card{
-
+  text-align: center;
 }
 
-
-.hours{
-  display: inline-flex;
-  padding: 10px;
+.input {
+  border: none;
+  border-radius: 6px;
+  width: auto;
+  margin-top: 20px;
+  padding: 20px;
+  color: #2a63a9;
+  font-size: 18px;
   
 
+
 }
-.hour{
-margin: 10px;
+
+
+.navigation {
+  display: flex;
+  justify-content: space-around;
+
+
+}
+
+.navItem {}
+
+.form {
+  margin: 10px;
+}
+
+.card {}
+
+.otherDaysList{
+  display: flex;
+}
+.hours {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  background-color: rgba(82, 142, 220, 0.5);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+
+.hour {
+  text-decoration: underline;
+  margin-bottom: 5px;
+
+}
+.fav{
+
+}
+.favCard {
+  display: flex;
+  border-top: #2a63a9 0.1px solid;
+  cursor: pointer;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+.favItem {
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: start;
+  font-size: 18px;
+
+}
+
+.favCard:hover {
+  color: #2a63a9;
+}
+
+.icon {
+  margin-right: 10px;
+  margin-top: 2px;
+  width: 10px;
+}
+
+.icon:hover{
+  color: #2a63a9;
+}
+
+.iconFav {
+  width: 20px;
+  
+}
+.iconFav:hover{
+  cursor: pointer;
+  color: #2a63a9;
+}
+
+.favCity{
+  font-size: 18px;
+}
+.favDesc{
+  font-size: 14px;
+}
+.favDegree{
+  font-size: 18px;
+  margin: auto;
 }
