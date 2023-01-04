@@ -1,9 +1,8 @@
 import './App.css';
 import Header from './components/Header';
 import WeatherCard from './components/WeatherCard';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DataContext } from './context/Data';
-import { FaGlasses, FaSearch } from 'react-icons/fa';
 
 const url = 'https://api.openweathermap.org/data/2.5/'
 const key = '24f4b587a66c966e59769c3b0f9ce4fb'
@@ -20,7 +19,6 @@ function App() {
     const weatherData = await response.json()
     setData(weatherData)
     setDataList(weatherData.list)
-    console.log(weatherData)
   }
 
   const handleSubmit = (e) => {
@@ -38,9 +36,17 @@ function App() {
     
 }
 
+useEffect=(()=>{
+  fetchData()
+  const localList = JSON.parse(localStorage.getItem('data'))
+  setFavorites(localList)
+  console.log(localList)
 
+})
 
   const allData = { data, setData, city, setCity, data, dataList, setDataList, favorites,setFavorites, openDetail }
+
+
 
   return (
     <DataContext.Provider value={allData}>
