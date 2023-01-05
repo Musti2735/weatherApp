@@ -1,12 +1,20 @@
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { DataContext } from "../context/Data";
-import { FaInfo, FaStar, FaTimes } from 'react-icons/fa'
+import { FaTimes } from 'react-icons/fa'
 
 function FavoriteList() {
     const { favorites, setFavorites, openDetail } = useContext(DataContext)
 
-    
+    const removeItem=(id)=>{
+        setFavorites(favorites.filter((item) => {
+            return item.city.id != id
+        }));
+    }
+
+    useEffect(() => {
+        localStorage.setItem('data', JSON.stringify(favorites));
+      }, [favorites]);
 
     return (
         <div>
@@ -16,9 +24,7 @@ function FavoriteList() {
 
                     <div key={index} className="fav">
                         <div className="favIcon">
-                            <FaTimes className="icon" value={item.city.id} onClick={() => setFavorites(favorites.filter((delItem) => {
-                                return delItem.city.id != item.city.id
-                            }))} />
+                            <FaTimes className="icon" value={item.city.id} onClick={() => removeItem(item.city.id)} />
                         </div>
                         <div key={index} className='favCard' onClick={() => openDetail(item.city.name)} >
                             <div className="favItem" >

@@ -9,7 +9,7 @@ import { FaInfo, FaStar, FaTrash, FaCalendarWeek, FaSun, FaMoon, FaCloud, FaClou
 function WeatherCard({ }) {
     const { city, data, setData, setCity, dataList, setDataList, favorites, setFavorites, listem, setListem } = useContext(DataContext)
     const [detail, setDetail] = useState(false)
-    const [image, setImage] = useState()
+
 
     const currentDay = dataList.filter((day) => day.dt_txt.slice(0, 10) === dataList[0].dt_txt.slice(0, 10))
     const secondDay = dataList.filter((day) => day.dt_txt.slice(0, 10) === dataList[currentDay.length].dt_txt.slice(0, 10))
@@ -21,13 +21,13 @@ function WeatherCard({ }) {
     const addFavori = (id) => {
         if (favorites.length == 0) {
             setFavorites([...favorites, data])
-            localStorage.setItem('data', JSON.stringify(data))
+            console.log(data)
         }
         else {
             let newList = favorites.find((item) => item.city.id === id)
             if (newList === undefined) {
                 setFavorites([...favorites, data])
-                localStorage.setItem('data', JSON.stringify([...favorites, data]))
+                console.log(data)
             }
             else {
                 console.log('daha önce eklendi')
@@ -35,8 +35,6 @@ function WeatherCard({ }) {
         }
 
     }
-
-
 
     const icon = currentDay[0].weather[0].icon
 
@@ -66,6 +64,7 @@ function WeatherCard({ }) {
         return desc
     }
 
+      
 
     return (
         <div className="container">
@@ -79,7 +78,7 @@ function WeatherCard({ }) {
                 <div className='cardItem'>
 
                     <FaStar className="iconFav" onClick={() => addFavori(data.city.id)} />
-
+ 
                     <div className="cityName">{data.city.name}</div>
                     <div className="degree">{Math.floor(currentDay[0].main.feels_like)} °C </div>
                     <div className="desc">{desc(currentDay)[0].slice(0, 1).toUpperCase() + desc(currentDay)[0].slice(1, desc(currentDay)[0].length).toLowerCase()} </div>

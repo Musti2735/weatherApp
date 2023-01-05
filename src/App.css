@@ -6,6 +6,9 @@ body {
   color: #fff;
 
 }
+.svg{
+  width: 10px;
+}
 
 .container {
   display: flex;
