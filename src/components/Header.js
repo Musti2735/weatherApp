@@ -30,7 +30,7 @@ function Header() {
     }
 
     return (
-        <div className="navigation">
+        <div className="header">
             <div className="navItem">
             <h3>Weather App</h3>
             </div>

@@ -177,9 +177,7 @@ function WeatherCard({ }) {
                     })}
                 </div>
             </div>
-            <div className="favoriteList">
-                <PopularCities />
-            </div>
+
 
 
         </div>

@@ -12,9 +12,9 @@ function App() {
   const [dataList, setDataList] = useState([])
   const [city, setCity] = useState('')
   const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('data')) || [])
-  
 
-  function getLocation(){
+
+  function getLocation() {
     return navigator.geolocation.getCurrentPosition(displayLocationInfo)
   }
 
@@ -23,21 +23,18 @@ function App() {
     const lat = position.coords.latitude;
     const localGeo = `${url}forecast?lat=${lat}&lon=${lon}&lang=tr&appid=${key}&units=metric`
     fetch(localGeo)
-    .then(res=>res.json())
-    .then(localData=>{
-       setDataList(localData.list)
-       setData(localData)
-    })
-  
-  } 
+      .then(res => res.json())
+      .then(localData => {
+        setDataList(localData.list)
+        setData(localData)
+      })
 
+  }
 
-  useEffect(()=>{
-getLocation()
-  
-  },[])
+  useEffect(() => {
+    getLocation()
 
-
+  }, [])
 
   const fetchData = async () => {
     const result = `${url}forecast?q=${city}&lang=tr&appid=${key}&units=metric`
@@ -68,7 +65,7 @@ getLocation()
 
   return (
     <DataContext.Provider value={allData}>
-      <div className="App">
+      <div className='container'>
 
         <Header />
         <div className='form'>
