@@ -3,12 +3,14 @@ import { DataContext } from "../context/Data";
 import FavoriteList from './FavoriteList';
 import PopularCities from './PopularCities'
 import { FaInfo, FaStar, FaTrash, FaCalendarWeek, FaSun, FaMoon, FaCloud, FaCloudRain, FaSnowplow, FaSnowflake, FaArrowDown, FaArrowUp, FaWind } from 'react-icons/fa'
+import Form from "./Form";
 
 
 
 function WeatherCard({ }) {
-    const { city, data, setData, setCity, dataList, setDataList, favorites, setFavorites, listem, setListem } = useContext(DataContext)
+    const { city, data, setData, setCity, dataList, setDataList, favorites, setFavorites, listem, setListem, showFavorite, setShowFavorite } = useContext(DataContext)
     const [detail, setDetail] = useState(false)
+
 
 
     const currentDay = dataList.filter((day) => day.dt_txt.slice(0, 10) === dataList[0].dt_txt.slice(0, 10))
@@ -64,21 +66,31 @@ function WeatherCard({ }) {
         return desc
     }
 
-      
+
 
     return (
         <div className="container">
-
-            <div className="favoriteList">
-                <FavoriteList /> 
+            
+            <div className="favoriteList--a">
+            {favorites.length > 0 && 
+                <FavoriteList />}
             </div>
+
             <div className="weaherCard">
+                <Form />
+                {
+                    favorites.length > 0 &&  <div className="toggleBtn" onClick={() => setShowFavorite(!showFavorite)}>{favorites.length} Favori Şehir</div>
+                }
+          
 
+                <div className="favoriteList--b">
+                    {showFavorite || favorites.length > 0 &&  <FavoriteList />
 
+                    }
+                </div>
                 <div className='cardItem'>
 
                     <FaStar className="iconFav" onClick={() => addFavori(data.city.id)} />
- 
                     <div className="cityName">{data.city.name}</div>
                     <div className="degree">{Math.floor(currentDay[0].main.feels_like)} °C </div>
                     <div className="desc">{desc(currentDay)[0].slice(0, 1).toUpperCase() + desc(currentDay)[0].slice(1, desc(currentDay)[0].length).toLowerCase()} </div>
@@ -176,7 +188,12 @@ function WeatherCard({ }) {
                         )
                     })}
                 </div>
+
             </div>
+            <div className="favoriteList--a">
+
+            </div>
+
 
 
 

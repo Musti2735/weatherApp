@@ -4,8 +4,8 @@
   box-sizing: border-box;
 }
 
-html{
-  font-size: 10px;
+html {
+  font-size: 12px;
 }
 
 body {
@@ -14,51 +14,112 @@ body {
   background-size: cover;
   color: #fff;
   text-align: center;
+}
+
+@media screen and (max-width:767px) {
+  .favoriteList--a {
+    display: none;
+  }
 
 
 }
-@media screen and (min-width:300px){
-  html{
+
+@media screen and (min-width:480px) {
+  html {
+    font-size: 14px;
+  }
+
+  .otherDays {
+    width: 22rem;
+  }
+
+  .weaherCard {
+    width: 42rem;
+  }
+
+
+}
+
+
+@media screen and (min-width:768px) {
+  .info {
+    display: flex;
+  }
+
+  .info1,
+  .info2 {
+    width: 50%;
+
+  }
+
+  .weaherCard {
+    width: 45rem;
+    min-width: 42rem;
+  }
+  .favoriteList--a {
+    width: 20rem;
+    min-width: 16rem;
+    margin: auto;
+  }
+  .toggleBtn, .favoriteList--b{
+    display: none;
+  }
+
+}
+
+@media screen and (min-width:992px) {
+  html {
     font-size: 16px;
   }
 
+  .info {
+    display: flex;
+  }
 
-  .info{
-    display: flex;
-  }
-  .info1, .info2{
+  .info1,
+  .info2 {
     width: 50%;
- 
   }
-  .otherDaysList{
-    display: flex;
+
+  .weaherCard {
+    width: 45rem;
+    min-width: 44rem;
   }
-  .otherDays{
-    width: 100%;
-  }
-  .favoriteList {
-    width: 200px;
+  .favoriteList--a {
+    width: 20rem;
+    min-width: 17rem;
     margin: auto;
   }
 
-  
 }
+
+
 
 /* Container */
 .container {
   margin: auto;
-  min-width: 200px
+  min-width: 200px;
+  display: flex;
 }
 
 
 /*Weather Card */
-.iconFav{
+.iconFav {
   font-size: 1.5rem;
 }
+
+.section--1{
+  display: flex;
+  justify-content: space-between;
+}
+
 .weaherCard {
   padding: 1rem;
+  margin: auto;
+
 
 }
+
 .info {
   background-color: rgba(82, 142, 220, 0.5);
   padding: 1rem;
@@ -69,15 +130,17 @@ body {
 .info1 {
   display: flex;
   padding: 1rem;
-  justify-content: center;  
-   align-items: center;
+  justify-content: center;
+  align-items: center;
 
 }
-.info1>div{
+
+.info1>div {
   margin: 0.5rem;
 }
-.info1>div>div{
-  margin: 8px;
+
+.info1>div>div {
+  margin: 0.8rem;
 }
 
 .info2 {
@@ -87,64 +150,77 @@ body {
   align-items: center;
 
 }
-.info2>div{
+
+.info2>div {
   margin: 0.5rem;
 }
-.info2>div>div{
-  margin: 4px;
+
+.info2>div>div {
+  margin: 0.4rem;
 }
+
 .cardItem {
-  margin: 20px;
+  margin: 2rem;
 }
 
 .cityName {
   font-size: 2rem;
-  margin: 5px;
+  margin: 0.5rem;
 }
 
 .degree {
   font-size: 3rem;
-  margin: 5px;
+  margin: 0.5rem;
 }
 
 .desc {
   font-size: 1.5rem;
-  margin: 5px;
+  margin: 0.5rem;
 }
 
-.image >img{
-  width: 60px;
+.image>img {
+  width: 6rem;
 }
 
 
-.hours>div{
+.hours>div {
   border: #2a63a9 1px solid;
+}
+
+.otherDaysList {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 
 .otherDays {
   background-color: rgba(82, 142, 220, 0.5);
-  border-radius: 4px; 
-  padding: 1rem;
-  margin:1rem;
+  border-radius: 4px;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  margin-bottom: 1.5rem;
 }
 
-.otherDays>div{
-margin-top: 0.5rem;
+.otherDays>div {
+  margin-top: 0.5rem;
 }
 
-.showDays {
+.showDays, .toggleBtn {
   border: none;
   color: #fbfbfb;
   padding: 1.5rem 1rem;
   transition-duration: 0.4s;
   cursor: pointer;
   margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   width: 15rem;
   border-radius: 6px;
+
 }
 
-.showDays:hover {
+.showDays:hover, .toggleBtn:hover {
   background-color: #bfdcff;
   ;
   color: #2a63a9;
@@ -153,18 +229,35 @@ margin-top: 0.5rem;
 }
 
 /*Form */
-.form{
-width: 200px;
-margin: auto;
+.form {
+  margin: auto;
 }
 
 .input {
   border: none;
   border-radius: 6px;
   width: auto;
-  margin-top: 20px;
-  padding: 20px;
+  margin: 1rem;
+  padding: 1.5rem;
   color: #2a63a9;
+}
+
+.formBtn{
+  border: none;
+  color: #2a63a9;
+  padding: 0.5rem 0.5rem;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  margin: auto;
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+  width: 5rem;
+  border-radius: 6px;
+}
+
+.formBtn:hover{
+  color: #fbfbfb;
+  background-color: #2a63a9;
 }
 
 /*Navigation*/
@@ -175,26 +268,26 @@ margin: auto;
   padding: 1rem;
 }
 
-
 /*Favorite List */
 
 
 .favCard {
   display: flex;
-  cursor: pointer;  
+  cursor: pointer;
   text-align: left;
   justify-content: space-between;
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
   border-bottom: #2a63a9 0.1px solid;
   transition: all 0.1s;
+}
+
+.favItem {
+  margin: 0.5rem;
 
 }
-.favItem {
-  margin: 5px;
-  
-  }
-.favItem>div{
-  padding: 6px;
+
+.favItem>div {
+  padding: 0.6rem;
 }
 
 .fav:hover {
@@ -205,30 +298,32 @@ margin: auto;
 }
 
 .icon {
-  width: 8px;
+  width: 0.8rem;
 }
 
-.icon:hover{
+.icon:hover {
   color: #2a63a9;
 }
 
-.favIcon{
+.favIcon {
   float: left;
   width: 10%;
-  margin-top: 24px;
-  margin-left: 5px;
+  margin-top: 2.4rem;
+  margin-left: 0.5rem;
 
 }
-.icon:hover{
+
+.icon:hover {
   cursor: pointer;
   color: #2a63a9;
 }
 
 
-.favDesc{
+.favDesc {
   font-size: 0.6rem;
 }
-.favDegree{
+
+.favDegree {
   font-size: 1.6rem;
   margin: auto;
 }

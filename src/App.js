@@ -1,5 +1,6 @@
 import './App.css';
 import Header from './components/Header';
+import Form from './components/Form'
 import WeatherCard from './components/WeatherCard';
 import { useEffect, useState } from 'react';
 import { DataContext } from './context/Data';
@@ -12,6 +13,8 @@ function App() {
   const [dataList, setDataList] = useState([])
   const [city, setCity] = useState('')
   const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('data')) || [])
+  const [showFavorite, setShowFavorite] = useState(false)
+
 
 
   function getLocation() {
@@ -56,28 +59,19 @@ function App() {
     const weatherData = await response.json()
     setData(weatherData)
     setDataList(weatherData.list)
+    setShowFavorite(!showFavorite)
+
   }
 
-
-  const allData = { data, setData, city, setCity, data, dataList, setDataList, favorites, setFavorites, openDetail }
-
-
+  const allData = { data, setData, city, setCity, data, dataList, setDataList, favorites, setFavorites, openDetail, setShowFavorite, showFavorite, handleSubmit }
 
   return (
     <DataContext.Provider value={allData}>
-      <div className='container'>
+      <div className=''>
 
         <Header />
-        <div className='form'>
-          <form onSubmit={handleSubmit} >
-            <input placeholder="Şehir..."
 
-              className='input' type="text" value={city} onChange={(e) => setCity(e.target.value)} />
-
-          </form>
-        </div>
-
-        {data.city ? <WeatherCard /> : null}
+        {data.city ? <WeatherCard /> : <Form/>}
 
 
 
