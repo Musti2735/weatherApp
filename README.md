@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+<h3>Hava Durumu Uygulaması</h3>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p>React kullanılarak hazırlanan bu uygulamada openweather üzerinden 5 günlük hava durumunu gösterir API çağırılmıştır. Gelen API kaynağından bir takım veriler fetch kullanılarak alınmış ve kullanıcıya gösterilmiştir.</p>
 
-## Available Scripts
+<p>Uygulama tarayıcı ilk açıldığında tarayıcının konum verisini almaktadır. Eğer konum varsa, useEffect hooku ile taraycıdan alınan konum bilgisi fetch API ile çağrılmakta ve tarayıcı konumu varsayılan olarak gösterilmektedir. Tarayıcı konumu yok ise kullanıcıdan input alanına şehir bilgisi girmesi beklenmektedir.
+</p>
 
-In the project directory, you can run:
+<p>Şehrin gün içinde, en yüksek, en düşük sıcaklık, gündoğumu, günbatımı ve rüzgar hızı ile birlikte üçer saatlik arayla saatlik gösterim mevcuttur. 'Haftalık Görünüm' butonu tıklandığında, devam eden 4 günün hava durumu bilgisi ekrana getirilmektedir. Openweather ücretsiz sürümünde sınırlı olarak kaynak desteği sunduğu için daha fazla detay bilgi uygulamaya eklenememiştir. Ayrıca mobil tarayıcıların, ne yazık ki hava durumu ikonlarını desteklemediği görülmüştür.</p>
 
-### `npm start`
+<p>Context yapısı kullanılarak componentler arasında veri transferi sağlanmıştır.</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<p>Uygulamada kullanıcı yıldız butonuna tıklayarak şehri favorilere ekleyebilir veya eklemiş olduğu şehri favori listensinden kaldırabilir. Favori listesinde bulunan şehrin üzerine tıklandığında, o şehrin hava durumu bilgisi ekrana getirilecektir. Ayrıca favori listesi localstorage'de kaydedildiği için tarayıcı yeniden yüklendiğinde ekrana gelecektir. </p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<p>Tasarım responsive hazırlanmış olup, mobil cizhazlar için kullanımı uygundur. Ekran boyutu azaldığında kademeli olarak box'ların dizilişi, genişliği, yazı boyutu oransal olarak değişmektedir. Bunun için css @media özelliği ile birlikte boyutlandırma için rem değeri kullanılmıştır.
+</p>
 
-### `npm test`
+<p>Tüm tasarım tamamen sıfırdan hazırlanmış ve sadece css kullanılmıştır.</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
