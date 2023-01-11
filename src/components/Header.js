@@ -29,6 +29,12 @@ function Header() {
         default:
     }
 
+    let days = date.getDate()
+    let mounth = date.getMonth()+1
+    let year = date.getFullYear()
+    let hour = date.getHours()
+    let minutes = date.getMinutes()
+
     return (
         <div className="header">
             <div className="navItem">
@@ -36,8 +42,8 @@ function Header() {
             </div>
 
             <div className="navItem">
-            <p>{`${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()} ${day}`}</p>
-            <p>{`${date.getHours()}:${date.getMinutes()}`}</p>
+            <p>{`${days<10 ? '0'+days:days}.${mounth+1<10 ? '0'+mounth : mounth}.${year} ${day}`}</p>
+            <p>{`${hour<10 ? '0'+hour:hour}:${minutes<10?'0'+minutes:minutes}`}</p>
             </div>
 
         </div>

@@ -3,7 +3,7 @@ import { DataContext } from "../context/Data";
 
 function Form() {
 
-    const { city, setCity, handleSubmit } = useContext(DataContext)
+    const { city, setCity, handleSubmit} = useContext(DataContext)
 
     return (
 

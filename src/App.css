@@ -14,12 +14,22 @@ body {
   background-size: cover;
   color: #fff;
   text-align: center;
+  margin-bottom: 100px;
 }
 
 @media screen and (max-width:767px) {
   .favoriteList--a {
     display: none;
   }
+  .toggleBtn{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .favoriteList--b{
+    margin: auto;
+  }
+
 
 
 }
@@ -33,7 +43,7 @@ body {
     width: 22rem;
   }
 
-  .weaherCard {
+  .card {
     width: 42rem;
   }
 
@@ -49,17 +59,17 @@ body {
   .info1,
   .info2 {
     width: 50%;
-
   }
 
-  .weaherCard {
+  .card {
     width: 45rem;
     min-width: 42rem;
   }
   .favoriteList--a {
-    width: 20rem;
+    width: 22rem;
     min-width: 16rem;
     margin: auto;
+    margin-top: 80px;
   }
   .toggleBtn, .favoriteList--b{
     display: none;
@@ -81,7 +91,7 @@ body {
     width: 50%;
   }
 
-  .weaherCard {
+  .card {
     width: 45rem;
     min-width: 44rem;
   }
@@ -89,7 +99,9 @@ body {
     width: 20rem;
     min-width: 17rem;
     margin: auto;
+    margin-top: 80px;
   }
+
 
 }
 
@@ -106,6 +118,8 @@ body {
 /*Weather Card */
 .iconFav {
   font-size: 1.5rem;
+  text-align: end;
+  cursor: pointer;
 }
 
 .section--1{
@@ -113,11 +127,9 @@ body {
   justify-content: space-between;
 }
 
-.weaherCard {
+.card {
   padding: 1rem;
   margin: auto;
-
-
 }
 
 .info {
@@ -135,10 +147,6 @@ body {
 
 }
 
-.info1>div {
-  margin: 0.5rem;
-}
-
 .info1>div>div {
   margin: 0.8rem;
 }
@@ -150,7 +158,6 @@ body {
   align-items: center;
 
 }
-
 .info2>div {
   margin: 0.5rem;
 }
@@ -174,7 +181,7 @@ body {
 }
 
 .desc {
-  font-size: 1.5rem;
+
   margin: 0.5rem;
 }
 
@@ -217,16 +224,23 @@ body {
   margin-bottom: 1rem;
   width: 15rem;
   border-radius: 6px;
-
+  background-color: rgba(82, 142, 220, 0.5);
 }
 
 .showDays:hover, .toggleBtn:hover {
   background-color: #bfdcff;
-  ;
   color: #2a63a9;
-  ;
-
 }
+
+.span{
+border: #fbfbfb 0.1rem solid;
+border-radius: 50%;
+width: 1.5rem;
+height:1.5rem;
+background-color: #2a63a9;
+color: #fbfbfb;
+}
+
 
 /*Form */
 .form {
@@ -320,7 +334,7 @@ body {
 
 
 .favDesc {
-  font-size: 0.6rem;
+  font-size: 1rem;
 }
 
 .favDegree {

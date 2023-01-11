@@ -15,8 +15,6 @@ function App() {
   const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('data')) || [])
   const [showFavorite, setShowFavorite] = useState(false)
 
-
-
   function getLocation() {
     return navigator.geolocation.getCurrentPosition(displayLocationInfo)
   }
@@ -31,12 +29,10 @@ function App() {
         setDataList(localData.list)
         setData(localData)
       })
-
   }
 
   useEffect(() => {
     getLocation()
-
   }, [])
 
   const fetchData = async () => {
@@ -51,6 +47,7 @@ function App() {
     e.preventDefault();
     fetchData();
     setCity('')
+    setShowFavorite(false)
   }
 
   const openDetail = async (cityName) => {
@@ -59,8 +56,7 @@ function App() {
     const weatherData = await response.json()
     setData(weatherData)
     setDataList(weatherData.list)
-    setShowFavorite(!showFavorite)
-
+    setShowFavorite(false)
   }
 
   const allData = { data, setData, city, setCity, data, dataList, setDataList, favorites, setFavorites, openDetail, setShowFavorite, showFavorite, handleSubmit }
@@ -68,13 +64,8 @@ function App() {
   return (
     <DataContext.Provider value={allData}>
       <div className=''>
-
         <Header />
-
-        {data.city ? <WeatherCard /> : <Form/>}
-
-
-
+        {data.city ? <WeatherCard /> : <Form />}
       </div>
     </DataContext.Provider>
   );

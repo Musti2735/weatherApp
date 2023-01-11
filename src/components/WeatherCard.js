@@ -1,17 +1,12 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { DataContext } from "../context/Data";
 import FavoriteList from './FavoriteList';
-import PopularCities from './PopularCities'
-import { FaInfo, FaStar, FaTrash, FaCalendarWeek, FaSun, FaMoon, FaCloud, FaCloudRain, FaSnowplow, FaSnowflake, FaArrowDown, FaArrowUp, FaWind } from 'react-icons/fa'
+import { FaStar, FaSun, FaMoon, FaArrowDown, FaArrowUp, FaWind } from 'react-icons/fa'
 import Form from "./Form";
 
-
-
 function WeatherCard({ }) {
-    const { city, data, setData, setCity, dataList, setDataList, favorites, setFavorites, listem, setListem, showFavorite, setShowFavorite } = useContext(DataContext)
+    const { data, dataList, favorites, setFavorites, showFavorite, setShowFavorite } = useContext(DataContext)
     const [detail, setDetail] = useState(false)
-
-
 
     const currentDay = dataList.filter((day) => day.dt_txt.slice(0, 10) === dataList[0].dt_txt.slice(0, 10))
     const secondDay = dataList.filter((day) => day.dt_txt.slice(0, 10) === dataList[currentDay.length].dt_txt.slice(0, 10))
@@ -23,13 +18,11 @@ function WeatherCard({ }) {
     const addFavori = (id) => {
         if (favorites.length == 0) {
             setFavorites([...favorites, data])
-            console.log(data)
         }
         else {
             let newList = favorites.find((item) => item.city.id === id)
             if (newList === undefined) {
                 setFavorites([...favorites, data])
-                console.log(data)
             }
             else {
                 console.log('daha önce eklendi')
@@ -39,7 +32,6 @@ function WeatherCard({ }) {
     }
 
     const icon = currentDay[0].weather[0].icon
-
 
     const maxDeg = (arr) => {
         let maxDeger = Math.floor(arr.map((hour) => hour.main.temp_max).sort((a, b) => b - a)[0]) + 1
@@ -59,47 +51,36 @@ function WeatherCard({ }) {
     const rise = new Date((timezone + sunrise) * 1000).toUTCString().slice(17, 22)
     const set = new Date((timezone + sunset) * 1000).toUTCString().slice(17, 22)
 
-
-
     const desc = (arr) => {
         let desc = arr.map((day) => day.weather[0].description)
         return desc
     }
 
-
-
     return (
         <div className="container">
-            
             <div className="favoriteList--a">
-            {favorites.length > 0 && 
-                <FavoriteList />}
+                {favorites.length > 0 &&
+                    <FavoriteList />}
             </div>
-
-            <div className="weaherCard">
+            <div className="card">
                 <Form />
                 {
-                    favorites.length > 0 &&  <div className="toggleBtn" onClick={() => setShowFavorite(!showFavorite)}>{favorites.length} Favori Şehir</div>
+                    favorites.length > 0 && <div className="toggleBtn" onClick={() => setShowFavorite(!showFavorite)}>Favoriler <div className="span">{favorites.length}</div> </div>
                 }
-          
-
                 <div className="favoriteList--b">
-                    {showFavorite || favorites.length > 0 &&  <FavoriteList />
-
+                    {showFavorite && favorites.length > 0 && <FavoriteList />
                     }
                 </div>
                 <div className='cardItem'>
-
-                    <FaStar className="iconFav" onClick={() => addFavori(data.city.id)} />
+                    <div className="iconFav">
+                        <FaStar onClick={() => addFavori(data.city.id)} />
+                    </div>
                     <div className="cityName">{data.city.name}</div>
                     <div className="degree">{Math.floor(currentDay[0].main.feels_like)} °C </div>
                     <div className="desc">{desc(currentDay)[0].slice(0, 1).toUpperCase() + desc(currentDay)[0].slice(1, desc(currentDay)[0].length).toLowerCase()} </div>
                     <div className="image">
                         <img src={`http://openweathermap.org/img/w/${icon}.png`} alt="img"></img>
-
                     </div>
-
-
                 </div>
                 <div className="info">
                     <div className="info1">
@@ -183,20 +164,13 @@ function WeatherCard({ }) {
                                 <div><FaArrowUp /> {maxDeg(day)}° <FaArrowDown /> {minDeg(day)}°</div>
                                 <div className="descInfo">{desc(day)[4]}</div>
                                 <img width="40" height="40" src={`http://openweathermap.org/img/w/${day[4].weather[0].icon}.png`} alt="img"></img>
-
                             </div>
                         )
                     })}
                 </div>
-
             </div>
             <div className="favoriteList--a">
-
             </div>
-
-
-
-
         </div>
     )
 }

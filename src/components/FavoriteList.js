@@ -6,7 +6,7 @@ import { FaTimes } from 'react-icons/fa'
 function FavoriteList() {
     const { favorites, setFavorites, openDetail } = useContext(DataContext)
 
-    const removeItem=(id)=>{
+    const removeItem = (id) => {
         setFavorites(favorites.filter((item) => {
             return item.city.id != id
         }));
@@ -14,11 +14,10 @@ function FavoriteList() {
 
     useEffect(() => {
         localStorage.setItem('data', JSON.stringify(favorites));
-      }, [favorites]);
+    }, [favorites]);
 
     return (
         <div>
-            <h4 className='favHeader'>Favoriler</h4>
             {favorites.map((item, index) => {
                 return (
 
@@ -36,12 +35,8 @@ function FavoriteList() {
                                 <div className="favDegree">{Math.floor(item.list[0].main.feels_like)}°
                                 </div>
                             </div>
-
                         </div>
-
-
                     </div>
-
                 )
             })}
         </div>
